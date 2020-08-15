@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input" value="">
+    <br><br><button id="btn" onclick="addElement()">ADD</button>
+    <br><br>
+    <br><button onclick="show_array()">Show</button>
+    <p id="result"></p>
+    <script>
+        let arr = Array();
+        let x = 0;
+        let getInput = document.getElementById('input');
+
+        ///press enter = click button
+        getInput.addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                document.getElementById('btn').click();
+            }
+        });
+        //add an element to arr[]
+        function addElement() {
+            add = getInput.value;
+            if (add != "") {
+                arr[x] = add;
+                x++;
+                alert("thêm " + add);
+                document.getElementById("input").focus();
+            } else {
+                alert('input sth!')
+                document.getElementById("input").focus();
+            }
+        }
+        ///////
+        function show_array() {
+            let e = "<hr/>";
+            for (let i = 0; i < arr.length; i++) {
+                e += "Element " + i + " = " + arr[i] + "<br/>";
+            }
+            document.getElementById("result").innerHTML = e;
+        }
+    </script>
+</body>
+
+</html>
